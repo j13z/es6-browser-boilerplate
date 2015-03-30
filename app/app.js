@@ -1,4 +1,8 @@
 // This is the main application module. Import other module from here.
+//
+// All modules will be compiled to ES5 and bundled into a single file,
+// `dist/js/app.js` so that the code can be run in today's browsers.
+
 
 import greeting from './test-module';
 
