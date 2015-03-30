@@ -20,7 +20,7 @@ Uses [es6-module-loader] / [SystemJS]. Also adds Backbone.js, Underscore.js and 
 
 - The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Write your app with ES6 modules, Backbone.js and SASS. Gulp handles the build
 
-- Use `gulp browser-sync` to run a development web server with automatic reloading via BrowserSync. (`app/index.html` won’t work in your browser.)
+- Use `gulp serve` to run a development web server with automatic reloading via BrowserSync. (`app/index.html` won’t work in your browser.)
 
 Three files will be served via HTTP (from the `dist` directory):
 

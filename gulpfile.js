@@ -129,11 +129,11 @@ gulp.task('watch', [ 'default' ], watch);
 
 
 
-// ---- browser-sync -----------------------------------------------------------
+// ---- serve ------------------------------------------------------------------
 
 // Start HTTP server with browser-sync enabled
 
-gulp.task('browser-sync', [ 'build' ], function () {
+gulp.task('serve', [ 'build' ], function () {
 
     browserSync({
         server: { baseDir: 'dist' },
