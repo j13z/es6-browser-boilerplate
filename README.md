@@ -17,4 +17,6 @@ ES6 modules are bundled using [es6-module-loader] / [SystemJS].
 - Write your app with ES6 modules (`app` directory), SASS, Backbone.js, build with Gulp.
 - Use `gulp browser-sync` to run a development web server with BrowserSync (automatic reloading)
 
-The app source lives in the `app` directory, the build goes to `dist`.
+The app source lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`.
+
+Serve `index.html` over HTTP with `gulp browser-sync`, it is not intended to be used over the `file://` protocol.
