@@ -1,6 +1,6 @@
 # es6-boilerplate
 
-Boilerplate code for a web app with ES6 modules.
+Boilerplate code for a web app with ES6 (ECMAScript 2015) modules.
 
 *Work in progress.*
 
