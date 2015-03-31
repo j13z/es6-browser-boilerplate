@@ -1,15 +1,19 @@
 # es6-boilerplate
 
-Boilerplate code for a web app with ES6 (ECMAScript 2015) modules.
-
 *Work in progress.*
 
-All ES6 modules are compiled to ES5 and bundled into a single file (`dist/js/app.js`) so that the code can be run in today’s browsers, served over HTTP 1.1.
+Boilerplate code for a web app with ES6 (ECMAScript 2015) modules.
 
-This project uses [es6-module-loader] / [SystemJS] and basically just adds a Gulp build to it.
+Features (Gulp build):
 
-[es6-module-loader]: https://github.com/ModuleLoader/es6-module-loader
-[SystemJS]: https://github.com/systemjs/systemjs
+- Compiles ES6 to ES5 (using Babel)
+- Bundles ES6 modules and ES5 libraries into a single script. Uses [es6-module-transpiler]
+- Sass (+ Autoprefixer), BrowserSync
+
+There’s an alternative version that uses [systemjs-builder] on the [`systemjs-builder` branch](https://github.com/j13z/es6-boilerplate/tree/systemjs-builder).
+
+[es6-module-transpiler]: https://github.com/esnext/es6-module-transpiler
+[systemjs-builder]: https://github.com/guybedford/systemjs-builder
 
 
 ## Usage
@@ -18,9 +22,9 @@ This project uses [es6-module-loader] / [SystemJS] and basically just adds a Gul
 
 - Run `npm install`
 
-- The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Write your app with ES6 modules and Sass, build it with gulp
+- The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Import other modules from `app/app.js`
 
-- Use `gulp serve` to run a development web server with automatic reloading via BrowserSync. (`app/index.html` won’t work in your browser.)
+- Use `gulp serve` to run a development web server with automatic reloading via BrowserSync (`app/index.html` won’t work in your browser)
 
 Three files will be served via HTTP (from the `dist` directory):
 
@@ -31,34 +35,27 @@ Three files will be served via HTTP (from the `dist` directory):
 
 ## How are the modules loaded / compiled?
 
-Here’s a minimal example of what [es6-module-loader] produces (module `test-module` exports a string that module `app` imports):
+Here’s a minimal example:
+
+```
+// app/app.js
+import greeting from './test-module';
+alert(greeting);
+```
+
+```
+// app/test-module.js
+export default 'Greetings from an ES6 module!';
+```
+
+[es6-module-transpiler] produces the following output, no runtime required:
 
 ```javascript
-// … SytemsJS runtime script will be placed here …
+"use strict";
 
-"format register";
-System.register("app/test-module", [], function($__export) {
+(function () {
     "use strict";
-    var __moduleName = "app/test-module";
-    return {
-        setters: [],
-        execute: function() {
-            $__export('default', 'Greetings from an ES6 module!');
-        }
-    };
-});
-
-System.register("app/app", ["app/test-module"], function($__export) {
-    "use strict";
-    var __moduleName = "app/app";
-    var greeting;
-    return {
-        setters: [function($__m) {
-            greeting = $__m.default;
-        }],
-        execute: function() {
-            alert(greeting);
-        }
-    };
-});
+    var $$test$module$$default = "Greetings from an ES6 module!";
+    alert($$test$module$$default);
+}).call(undefined);
 ```
