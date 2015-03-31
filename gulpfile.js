@@ -20,10 +20,9 @@ var settings = {
 
 	jsDependencies: [
 		// Array determines order for concatenation
-		'lib/jquery-1.11.2.min.js',
 
-		'node_modules/underscore/underscore-min.js',
-		'node_modules/backbone/backbone-min.js',
+		// … place additional libaries (not ES6 modules) to be bundled here …
+		// TODO: Read `script` tags from `index.html` instead.
 
 		'node_modules/es6-module-loader/dist/es6-module-loader.js',
 		'node_modules/systemjs-builder/node_modules/systemjs/dist/system.js'

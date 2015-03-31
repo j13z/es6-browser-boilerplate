@@ -14,20 +14,11 @@ const saySomething = (message) => {
 
 		<ul>
 			<li>Module sources and styles (SCSS): <code>/app</code> directory</li>
-			<li>Deployable artifacts go to <code>/dist</code></li>
-			<li>3rd party libaries live in <code>/lib</code> or <code>/node_modules</code> (npm)</li>
+			<li>Deployable artifacts are written to <code>/dist</code></li>
 		</ul>
 	`);
 };
 
 saySomething(greeting);
 
-
-// jQuery, Backbone.js and Underscore.js are available on the global scope.
-// Ultimately they would be loaded as modules, too.
-
-console.log('Here are some toys to play with:');
-
-console.log('jQuery:', jQuery);
-console.log('Underscore.js:', _);
-console.log('Backbone.js:', Backbone);
+console.log('Up and running.');
