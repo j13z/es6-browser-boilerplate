@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var $    = require('gulp-load-plugins')();
 
 var del = require('del');
+var streamQueue = require('streamqueue').bind(null, { objectMode: true });
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload.bind(null, { stream: true });
@@ -19,13 +20,10 @@ var settings = {
 	],
 
 	jsDependencies: [
-		// Array determines order for concatenation
+		// Place additional libaries (not ES6 modules) to be bundled here.
+		// (Array determines order for concatenation)
 
-		// … place additional libaries (not ES6 modules) to be bundled here …
 		// TODO: Read `script` tags from `index.html` instead.
-
-		'node_modules/es6-module-loader/dist/es6-module-loader.js',
-		'node_modules/systemjs-builder/node_modules/systemjs/dist/system.js'
 	]
 };
 
@@ -46,34 +44,26 @@ var AUTOPREFIXER_BROWSERS = [
 
 // --- scripts -----------------------------------------------------------------
 
-/**
- * @return {Promise}
- */
-function createModuleBundle(outputFilename) {
-
-	var Builder = require('systemjs-builder');
-
-	return new Builder().build('app/*', outputFilename, { minify: true });
-	// .build('app/*', outputFilename, { minify: true, sourceMaps: true })
-}
-
 gulp.task('scripts', function() {
 
-	var scripts = settings.jsDependencies.concat('.tmp/module_bundle.js');
+	// TODO: Generate source maps for this.
 
-	createModuleBundle('.tmp/module_bundle.js').then(function() {
+	var moduleBundle = gulp.src('app/app.js')
+		// .pipe($.sourcemaps.init())
+		.pipe($.es6ModuleTranspiler({
+			formatter: 'bundle',
+			basePath: 'app'
+		}))
+		.pipe($.babel());
+		// .pipe($.sourcemaps.write('./'))
 
-		return gulp.src(scripts)
-			.pipe($.concat('app.js'))
-			.pipe(gulp.dest('dist/js'))
-			.pipe($.size({ title: 'scripts' }))
-			.pipe(reload());
+	var libs = gulp.src(settings.jsDependencies);
 
-		// TODO: Clean up temp files: `.tmp/module_bundle.js`
-	})
-	.catch(function(err) {
-		console.log('Error:', err);
-	});
+	return streamQueue(libs, moduleBundle)
+		.pipe($.concat('app.js'))
+		.pipe(gulp.dest('dist/js'))
+		.pipe($.size({ title: 'scripts' }))
+		.pipe(reload());
 });
 
 
@@ -121,7 +111,7 @@ gulp.task('copy', function () {
 // Run build when any file in `app` directory changes
 
 function watch() {
-	gulp.watch([ 'app/**', __filename ], [ 'build' ]);
+	gulp.watch([ 'app/**', 'lib/**', __filename ], [ 'build' ]);
 }
 
 gulp.task('watch', [ 'default' ], watch);
