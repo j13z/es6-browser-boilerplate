@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.1",
   "description": "Boilerplate code for a web app with ES6 modules, compiled and bundled into a single ES5 script",
-  "main": "app.js",
   "author": "Johannes Schmitz <code@j13z.com>",
   "license": "ISC",
+  "engines": {
+    "node" : "~0.10.35"
+  },
   "devDependencies": {
     "browser-sync": "^2.5.0",
     "del": "^1.1.1",
