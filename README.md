@@ -37,13 +37,13 @@ Three files will be served via HTTP (from the `dist` directory):
 
 Here’s a minimal example:
 
-```
+```javascript
 // app/app.js
 import greeting from './test-module';
 alert(greeting);
 ```
 
-```
+```javascript
 // app/test-module.js
 export default 'Greetings from an ES6 module!';
 ```
