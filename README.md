@@ -51,6 +51,7 @@ export default 'Greetings from an ES6 module!';
 [es6-module-transpiler] produces the following output, no runtime required:
 
 ```javascript
+// dist/js/app.js
 "use strict";
 
 (function () {
