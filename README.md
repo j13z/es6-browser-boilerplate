@@ -1,6 +1,6 @@
 # es6-boilerplate
 
-*Work in progress. A repo that I use to start smaller ES6 projects.*
+*Work in progress. A repo that I use to start smaller ES6 projects (with the shell snippet below).*
 
 Boilerplate code for a web app with ES6 (ECMAScript 2015) modules.
 
@@ -21,7 +21,7 @@ There’s an alternative version that uses [systemjs-builder] on the [`systemjs-
 ## Usage
 
 - Clone the repo
-- Run `npm install`
+- Run `npm install` *(takes about 110 MB disk space)*
 - Start a development server (BrowserSync) with `gulp serve`
 
 Or all in one run:
