@@ -1,6 +1,6 @@
 # es6-boilerplate
 
-*Work in progress.*
+*Work in progress. A repo that I use to start smaller ES6 projects.*
 
 Boilerplate code for a web app with ES6 (ECMAScript 2015) modules.
 
@@ -8,6 +8,7 @@ Features (Gulp build):
 
 - Compiles ES6 to ES5 (using Babel)
 - Bundles ES6 modules and ES5 libraries into a single script. Uses [es6-module-transpiler]
+- No runtime
 - Sass (+ Autoprefixer), BrowserSync
 
 There’s an alternative version that uses [systemjs-builder] on the [`systemjs-builder` branch](https://github.com/j13z/es6-boilerplate/tree/systemjs-builder).
@@ -60,3 +61,7 @@ export default 'Greetings from an ES6 module!';
     alert($$test$module$$default);
 }).call(undefined);
 ```
+
+## Limitations
+
+- Painful to include compilation of React’s JSX
