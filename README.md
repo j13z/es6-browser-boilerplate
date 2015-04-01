@@ -17,21 +17,33 @@ There’s an alternative version that uses [systemjs-builder] on the [`systemjs-
 [systemjs-builder]: https://github.com/guybedford/systemjs-builder
 
 
+
 ## Usage
 
 - Clone the repo
-
 - Run `npm install`
+- Start a development server (BrowserSync) with `gulp serve`
 
-- The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Import other modules from `app/app.js`
+Or all in one run:
 
-- Use `gulp serve` to run a development web server with automatic reloading via BrowserSync (`app/index.html` won’t work in your browser)
+```shell
+git clone git@github.com:j13z/es6-boilerplate.git project  && \
+cd project   && \
+rm -rf .git  && \
+cat /dev/null > README.md  && \
+cat /dev/null > TODO.md    && \
+npm install  && \
+gulp serve
+```
 
 Three files will be served via HTTP (from the `dist` directory):
 
 - `index.html`
 - `js/app.js`
 - `css/styles.css`
+
+The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Import other modules from `app/app.js`
+
 
 
 ## How are the modules loaded / compiled?
