@@ -2,9 +2,9 @@
 
 # es6-boilerplate
 
-Features (Gulp build):
+ES6 (ECMAScript 2015) boilerplate project for current browsers. Features (Gulp build):
 
-- Compiles ES6 (ECMAScript 2015) to ES5 (using Babel)
+- Compiles ES6 to ES5 (using Babel)
 - Bundles ES6 modules and ES5 libraries into a single script. Uses [es6-module-transpiler]
 - No runtime
 - Sass (+ Autoprefixer), BrowserSync
