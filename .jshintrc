@@ -2,6 +2,16 @@
 	// JSHint settings, see: http://jshint.com/docs/options/
 
 
+	// Environments / globals
+	// ----------------------
+
+	"esnext":  true,
+	"browser": true,
+	"devel":   true,
+
+	"predef": [ "Promise" ],
+
+
 	// Style
 	// -----
 
@@ -27,7 +37,8 @@
 	// Conventions for clean JS use
 	// ----------------------------
 
-	"strict": true,      // Requires all functions run in ES5 Strict Mode
+	"strict": false,     // Requires all functions run in ES5 Strict Mode
+	                     // -> disabled for ES6 (strict by default)
 
 	"eqeqeq": true,      // Require triple equals (===) for comparison
 
@@ -35,15 +46,6 @@
 	                     // declared (prevents global leaks)
 
 	"unused": true,      // Require all defined variables be used
-
-
-
-	// Environments / globals
-	// ----------------------
-
-	"browser": true,
-
-	"devel":   true,
 
 
 
