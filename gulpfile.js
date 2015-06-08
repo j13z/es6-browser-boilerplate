@@ -10,6 +10,8 @@ var streamQueue = require('streamqueue').bind(null, { objectMode: true });
 var browserSync = require('browser-sync');
 var reload = browserSync.reload.bind(null, { stream: true });
 
+var jshintStylish = require('jshint-stylish');
+
 
 
 var settings = {
@@ -42,9 +44,19 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 
+
+// --- lint --------------------------------------------------------------------
+
+gulp.task('lint', function () {
+	return gulp.src('app/**/*.js')
+		.pipe($.jshint())
+		.pipe($.jshint.reporter(jshintStylish));
+});
+
+
 // --- scripts -----------------------------------------------------------------
 
-gulp.task('scripts', function() {
+gulp.task('scripts', [ 'lint' ], function() {
 
 	// TODO: Generate source maps for this.
 
