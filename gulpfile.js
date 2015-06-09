@@ -1,9 +1,15 @@
 'use strict';
 /* jshint node: true */
 
+
+// Gulp
 var gulp = require('gulp');
 var $    = require('gulp-load-plugins')();
 
+// Node
+var path = require('path');
+
+// Others
 var del = require('del');
 var streamQueue = require('streamqueue').bind(null, { objectMode: true });
 
@@ -16,6 +22,9 @@ var jshintStylish = require('jshint-stylish');
 
 var paths = {
 
+	script:     'app/app.js',
+	stylesheet: 'app/scss/styles.scss',
+
 	// Files that will be copied unprocessed
 	staticFiles: [
 		'app/index.html'
@@ -24,9 +33,7 @@ var paths = {
 	jsDependencies: [
 		// Place additional libaries (not ES6 modules) to be bundled here.
 		// (Array determines order for concatenation)
-
-		// TODO: Read `script` tags from `index.html` instead.
-	],
+	]
 
     // sourceRoot: path.join(__dirname, 'app')
 };
@@ -62,15 +69,15 @@ gulp.task('scripts', [ 'lint' ], function() {
 
 	// TODO: Generate source maps for this.
 
-	var moduleBundle = gulp.src('app/app.js')
+	var moduleBundle = gulp.src(paths.script)
 		// .pipe($.sourcemaps.init())
 		.pipe($.es6ModuleTranspiler({
 			formatter: 'bundle',
 			basePath: 'app'
 		}))
 		.pipe($.babel())
-		.on('error', $.util.log);
         // .pipe($.sourcemaps.write('.', { sourceRoot: paths.sourceRoot }))
+		.on('error', $.util.log);
 
 	var libs = gulp.src(paths.jsDependencies);
 
@@ -88,7 +95,7 @@ gulp.task('scripts', [ 'lint' ], function() {
 // (Adapted from `google/web-starter-kit`)
 
 gulp.task('styles', function () {
-	return gulp.src('app/scss/styles.scss')
+	return gulp.src(paths.stylesheet)
 		.pipe($.sourcemaps.init())
 		.pipe($.changed('.tmp/styles', { extension: '.css' }))
 
