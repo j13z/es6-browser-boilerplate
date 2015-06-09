@@ -7,16 +7,15 @@
 import greeting from './test-module';
 
 const saySomething = (message) => {
-	document.write(`
-		<h1>ES6 web app boilerplate project</h1>
+	document.body.innerHTML =
+		`<h1>ES6 web app boilerplate project</h1>
 
 		<p>${message}</p>
 
 		<ul>
 			<li>Module sources and styles (SCSS): <code>/app</code> directory</li>
 			<li>Deployable artifacts are written to <code>/dist</code></li>
-		</ul>
-	`);
+		</ul>`;
 };
 
 saySomething(greeting);
