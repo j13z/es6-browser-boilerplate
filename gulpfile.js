@@ -14,7 +14,7 @@ var jshintStylish = require('jshint-stylish');
 
 
 
-var settings = {
+var paths = {
 
 	// Files that will be copied unprocessed
 	staticFiles: [
@@ -26,7 +26,9 @@ var settings = {
 		// (Array determines order for concatenation)
 
 		// TODO: Read `script` tags from `index.html` instead.
-	]
+	],
+
+    // sourceRoot: path.join(__dirname, 'app')
 };
 
 
@@ -66,10 +68,11 @@ gulp.task('scripts', [ 'lint' ], function() {
 			formatter: 'bundle',
 			basePath: 'app'
 		}))
-		.pipe($.babel());
-		// .pipe($.sourcemaps.write('./'))
+		.pipe($.babel())
+		.on('error', $.util.log);
+        // .pipe($.sourcemaps.write('.', { sourceRoot: paths.sourceRoot }))
 
-	var libs = gulp.src(settings.jsDependencies);
+	var libs = gulp.src(paths.jsDependencies);
 
 	return streamQueue(libs, moduleBundle)
 		.pipe($.concat('app.js'))
@@ -112,7 +115,7 @@ gulp.task('styles', function () {
 // Copy files that don't need processing to `dist` directory
 
 gulp.task('copy', function () {
-	return gulp.src(settings.staticFiles)
+	return gulp.src(paths.staticFiles)
 		.pipe(gulp.dest('dist'));
 });
 
