@@ -34,6 +34,8 @@ npm install  && \
 gulp serve
 ```
 
+(Assumes an up-to-date global gulp; use `./node_modules/.bin/gulp` to run the local gulp.)
+
 Three files will be served via HTTP (from the `dist` directory):
 
 - `index.html`
