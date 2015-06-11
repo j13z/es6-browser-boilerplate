@@ -1,26 +1,19 @@
-'use strict';
 /* jshint node: true */
 
+// import path from 'path';
+import gulp from 'gulp';
+import gulpLoadPlugins from 'gulp-load-plugins';
+import del from 'del';
+import _streamQueue from 'streamqueue';
+import browserSync from 'browser-sync';
+import jshintStylish from 'jshint-stylish';
 
-// Gulp
-var gulp = require('gulp');
-var $    = require('gulp-load-plugins')();
-
-// Node
-var path = require('path');
-
-// Others
-var del = require('del');
-var streamQueue = require('streamqueue').bind(null, { objectMode: true });
-
-var browserSync = require('browser-sync');
-var reload = browserSync.reload.bind(null, { stream: true });
-
-var jshintStylish = require('jshint-stylish');
+const $ = gulpLoadPlugins();
+const streamQueue = _streamQueue.bind(null, { objectMode: true });
+const reload = browserSync.reload.bind(null, { stream: true });
 
 
-
-var paths = {
+const paths = {
 
 	script:     'app/app.js',
 	stylesheet: 'app/scss/styles.scss',
@@ -33,14 +26,14 @@ var paths = {
 	jsDependencies: [
 		// Place additional libaries (not ES6 modules) to be bundled here.
 		// (Array determines order for concatenation)
-	]
+	],
 
     // sourceRoot: path.join(__dirname, 'app')
 };
 
 
 // Taken from `google/web-starter-kit`
-var AUTOPREFIXER_BROWSERS = [
+const autoprefixerBrowsers = [
 	'ie >= 10',
 	'ie_mob >= 10',
 	'ff >= 30',
@@ -56,7 +49,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 // --- lint --------------------------------------------------------------------
 
-gulp.task('lint', function () {
+gulp.task('lint', () => {
 	return gulp.src('app/**/*.js')
 		.pipe($.jshint())
 		.pipe($.jshint.reporter(jshintStylish));
@@ -69,7 +62,7 @@ gulp.task('scripts', [ 'lint' ], function() {
 
 	// TODO: Generate source maps for this.
 
-	var moduleBundle = gulp.src(paths.script)
+	const moduleBundle = gulp.src(paths.script)
 		// .pipe($.sourcemaps.init())
 		.pipe($.es6ModuleTranspiler({
 			formatter: 'bundle',
@@ -79,7 +72,7 @@ gulp.task('scripts', [ 'lint' ], function() {
         // .pipe($.sourcemaps.write('.', { sourceRoot: paths.sourceRoot }))
 		.on('error', $.util.log);
 
-	var libs = gulp.src(paths.jsDependencies);
+	const libs = gulp.src(paths.jsDependencies);
 
 	return streamQueue(libs, moduleBundle)
 		.pipe($.concat('app.js'))
@@ -94,7 +87,7 @@ gulp.task('scripts', [ 'lint' ], function() {
 
 // (Adapted from `google/web-starter-kit`)
 
-gulp.task('styles', function () {
+gulp.task('styles', () => {
 	return gulp.src(paths.stylesheet)
 		.pipe($.sourcemaps.init())
 		.pipe($.changed('.tmp/styles', { extension: '.css' }))
@@ -106,7 +99,7 @@ gulp.task('styles', function () {
 		}))
 
 		// Autoprefixer
-		.pipe($.autoprefixer({ browsers: AUTOPREFIXER_BROWSERS }))
+		.pipe($.autoprefixer({ browsers: autoprefixerBrowsers }))
 
 		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('.tmp/styles'))
@@ -121,7 +114,7 @@ gulp.task('styles', function () {
 
 // Copy files that don't need processing to `dist` directory
 
-gulp.task('copy', function () {
+gulp.task('copy', () => {
 	return gulp.src(paths.staticFiles)
 		.pipe(gulp.dest('dist'));
 });
@@ -144,7 +137,7 @@ gulp.task('watch', [ 'default' ], watch);
 
 // Start HTTP server with browser-sync enabled
 
-gulp.task('serve', [ 'build' ], function () {
+gulp.task('serve', [ 'build' ], () => {
 
     browserSync({
         server: { baseDir: 'dist' },
@@ -156,7 +149,7 @@ gulp.task('serve', [ 'build' ], function () {
 
 
 
-// ---- Various ----------------------------------------------------------------
+// ---- constious ----------------------------------------------------------------
 
 gulp.task('build', [ 'scripts', 'styles', 'copy' ]);
 
