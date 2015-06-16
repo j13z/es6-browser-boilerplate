@@ -1,5 +1,8 @@
 *Work in progress. A repo that I use to start smaller ES6 projects (with the shell snippet below).*
 
+
+![](https://david-dm.org/j13z/es6-browser-boilerplate/dev-status.png)
+
 # es6-boilerplate
 
 ES6 (ECMAScript 2015) boilerplate project for current browsers. Features (Gulp build):
