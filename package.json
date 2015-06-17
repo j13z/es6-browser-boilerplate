@@ -1,5 +1,5 @@
 {
-  "name": "es6-boilerplate",
+  "name": "es6-browser-boilerplate",
   "private": true,
   "version": "0.0.1",
   "description": "Boilerplate code for a web app with ES6 modules, compiled and bundled into a single ES5 script",
