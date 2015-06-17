@@ -89,23 +89,22 @@ gulp.task('scripts', [ 'lint' ], function() {
 
 gulp.task('styles', () => {
 	return gulp.src(paths.stylesheet)
-		.pipe($.sourcemaps.init())
 		.pipe($.changed('.tmp/styles', { extension: '.css' }))
+		.pipe($.sourcemaps.init())
 
 		// Compile
 		.pipe($.sass({
 			precision: 10,
-			onError: console.error.bind(console, 'Sass error:')
 		}))
+		.on('error', $.sass.logError)
 
 		// Autoprefixer
-		.pipe($.autoprefixer({ browsers: autoprefixerBrowsers }))
+		.pipe($.autoprefixer(autoprefixerBrowsers))
 
-		.pipe($.sourcemaps.write())
-		.pipe(gulp.dest('.tmp/styles'))
-
-		// Concatenate and minify
+		.pipe(gulp.dest('.tmp'))
+		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('dist/css'))
+
 		.pipe($.size({ title: 'styles' }));
 });
 
