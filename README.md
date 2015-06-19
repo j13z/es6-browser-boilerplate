@@ -5,7 +5,7 @@
 
 # es6-boilerplate
 
-ES6 (ECMAScript 2015) boilerplate project for current browsers. Features (via Gulp build):
+ES6 (ECMAScript 2015) boilerplate project for current browsers, to be used with HTTP/1.1. Features (via Gulp build):
 
 - Compiles ES6 to ES5 (using Babel)
 - Bundles ES6 modules and ES5 libraries into a single script. Uses [es6-module-transpiler]
