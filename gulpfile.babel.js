@@ -28,7 +28,7 @@ const paths = {
 		// (Array determines order for concatenation)
 	],
 
-    // sourceRoot: path.join(__dirname, 'app')
+	// sourceRoot: path.join(__dirname, 'app')
 };
 
 
