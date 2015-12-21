@@ -152,6 +152,6 @@ gulp.task('serve', [ 'build' ], () => {
 
 gulp.task('build', [ 'scripts', 'styles', 'copy' ]);
 
-gulp.task('clean', del.bind(null, [ '.tmp', 'dist' ], { dot: true }));
+gulp.task('clean', del.bind(null, [ '.tmp/**/*', 'dist/**/*' ], { dot: true }));
 
 gulp.task('default', [ 'build' ]);
