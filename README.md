@@ -12,10 +12,8 @@ ES6 (ECMAScript 2015) boilerplate project for current browsers, to be used with 
 - No runtime
 - Sass (+ Autoprefixer), BrowserSync, linting (JSHint)
 
-There’s an alternative version that uses [systemjs-builder] on the [`systemjs-builder` branch](https://github.com/j13z/es6-boilerplate/tree/systemjs-builder).
 
 [es6-module-transpiler]: https://github.com/esnext/es6-module-transpiler
-[systemjs-builder]: https://github.com/guybedford/systemjs-builder
 
 
 
