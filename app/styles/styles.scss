@@ -1,0 +1,50 @@
+@import 'reset';
+
+.-hidden {
+	display: none;
+}
+
+body {
+	font-family: 'Avenir Next', sans-serif;
+	max-width: 37em;
+	margin: auto;
+	padding: 4em 1.5em;
+	line-height: 1.5;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 1.5em;
+	line-height: 2em;
+}
+
+
+pre {
+	overflow: scroll;
+	font-family: 'Source Code Pro', monospace;
+	font-size: 0.95em;
+	line-height: 1.3;
+	color: #444;
+	background-color: #eee;
+	padding: 1.5em 2.5em;
+	border-radius: 0.2em;
+}
+
+p {
+	margin: 1em 0;
+}
+
+.section-dir-structure {
+	margin-top: 4em;
+}
+
+#react-example {
+	font-weight: 300;
+	background-color: #222;
+	color: #00D8FF;
+	padding: 1.5em 1em;
+	max-width: 7em;
+	text-align: center;
+	border-radius: 0.2em;
+	margin: 3em 0;
+}
