@@ -2,7 +2,7 @@
 
 - Refine `.eslintrc`
 - Improve SASS error handling (Gulp)
-- Add test setup (unit and integration / feature). Mocha, Chai, Istanbul, maybe `mocha-phantomjs`, etc.
+- Check if there’s a way to speed up the test setup (Babel makes things slow)
 
 ## Issues
 

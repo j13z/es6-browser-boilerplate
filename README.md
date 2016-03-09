@@ -13,15 +13,20 @@ Features (via [Gulp] build):
 - Bundles ES6 modules and ES5 libraries into a single script using [Browserify]
 - [Sass] (with [Autoprefixer]), [Browsersync], linting ([ESLint])
 - Support for React’s [JSX] syntax
+- Unit test setup: [Mocha], [Chai], [Sinon], [Istanbul]
 
 [Autoprefixer]: https://github.com/postcss/autoprefixer
 [Babel]: http://babeljs.io
 [Browserify]: http://browserify.org/
 [Browsersync]: https://www.browsersync.io/
+[Chai]: http://chaijs.com/
 [ESLint]: http://eslint.org/
 [Gulp]: http://gulpjs.com/
+[Istanbul]: https://github.com/gotwarlost/istanbul
 [JSX]: https://facebook.github.io/jsx/
+[Mocha]: mochajs.org
 [Sass]: http://sass-lang.com/
+[Sinon]: http://http://sinonjs.org/
 
 
 
@@ -49,6 +54,6 @@ Three files will be served via HTTP (from the `dist` directory):
 - `app.js`
 - `styles.css`
 
-You can use `npm run gulp` as an alias for the local Gulp. Otherwise make sure you global Gulp is up to date.
+You can use `npm run gulp <task>` as an alias for the local Gulp (`./node_modules/.bin/gulp`). Otherwise make sure your global Gulp is up to date.
 
-The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Import other ES6 modules from `app/app.js`. Use npm to install dependencies.
+The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Import other ES6 modules from `app/app.js`. Use npm to install dependencies. Run tests with `npm test` (coverage report goes to `coverage/lcov-report/index.html`).
