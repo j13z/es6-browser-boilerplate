@@ -1,0 +1,106 @@
+---
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+
+env:
+  browser: true
+  node: true
+  es6: true
+
+plugins:
+    - react
+
+ecmaFeatures:
+  # Enable all ES6 features
+  arrowFunctions: true
+  binaryLiterals: true
+  blockBindings: true
+  classes: true
+  defaultParams: true
+  destructuring: true
+  forOf: true
+  generators: true
+  modules: true
+  objectLiteralComputedProperties: true
+  objectLiteralDuplicateProperties: true
+  objectLiteralShorthandMethods: true
+  objectLiteralShorthandProperties: true
+  octalLiterals: true
+  regexUFlag: true
+  regexYFlag: true
+  spread: true
+  superInFunctions: true
+  templateStrings: true
+  unicodeCodePointEscapes: true
+  globalReturn: true
+
+parserOptions:
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+
+
+rules:
+
+  # --- Safety / clean code ----------------------------------------------------
+
+  eqeqeq: 2      # Disallow lenient comparison operators (`==` and `!=`)
+
+  no-undef: 2    # Disallow use of undeclared variables / constants
+
+  radix: 2       # Require radix for parseInt()
+
+
+  # --- Basic checks -----------------------------------------------------------
+
+  no-unused-vars:    # Warnings for unused variables
+    - 1
+    - vars: all
+      args: after-used
+
+  no-mixed-spaces-and-tabs:
+    - 1
+    - smart-tabs     # Allows mixing tabs and spaces for *alignment*
+
+
+  # --- Style ------------------------------------------------------------------
+
+  indent:
+    - 1
+    - tab    # Indent with tabs -- and *align* with *spaces*!
+
+
+  semi:      # Force semicolons
+    - 1
+    - always
+
+  quotes:    # Force single quotes
+    - 1
+    - single
+
+  semi-spacing:
+    - 1
+    - before: false
+      after: true
+
+  camelcase: 1
+
+
+  # --- Various / bike shedding ------------------------------------------------
+
+  yoda:    # Disencourage Yoda-style conditionals
+    - 1
+    - never
+
+  no-console: 0    # allow usage of `console`   TODO: check
+
+
+  # TODO:
+  #
+  # - Force curly braces, except when it’s a single-line statement (e.g. allow
+  #   `if (err) throw err;` for Node.js). Check if there is a rule that can do
+  #   this.
+  #
+  # - ES6: Check if there is a rule that can tell if `const` would be a better
+  #   choice than `let` or `var`.
