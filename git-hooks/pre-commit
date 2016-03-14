@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo
+echo "Running pre-commit hook"
+echo
+
+function fail {
+	printf "\n\n ========== Pre-commit checks FAILED ==========\n\n"
+	exit 1
+}
+
+npm run lint || fail
+npm test || fail
+
+printf "\n\n ✓ checks passed\n\n"

@@ -44,6 +44,8 @@ cd project   && \
 rm -rf .git  && \
 cat /dev/null > README.md  && \
 cat /dev/null > TODO.md    && \
+git init && \
+cd .git/hooks/ && ln -s ../../git-hooks/pre-commit && cd - && \
 npm install  && \
 npm start
 ```
