@@ -4,12 +4,21 @@ echo
 echo "Running pre-commit hook"
 echo
 
+# Exclude unstaged files from the tests (they may still break the tests)
+git stash -q --keep-index
+
+function restore_and_exit {
+	git stash pop -q
+	exit $1
+}
+
 function fail {
 	printf "\n\n ========== Pre-commit checks FAILED ==========\n\n"
-	exit 1
+	restore_and_exit 1
 }
 
 npm run lint || fail
 npm test || fail
 
 printf "\n\n ✓ checks passed\n\n"
+restore_and_exit 0
