@@ -59,9 +59,9 @@
     ]
   },
   "scripts": {
+    "test": "node_modules/.bin/mocha --compilers js:babel-register tests/unit",
+    "coverage": "./node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- tests/unit",
     "lint": "./node_modules/.bin/eslint app tests",
-    "unittest": "./node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- tests/unit",
-    "test": "npm run unittest",
     "gulp": "./node_modules/.bin/gulp",
     "build": "npm run gulp",
     "start": "npm run gulp serve"
