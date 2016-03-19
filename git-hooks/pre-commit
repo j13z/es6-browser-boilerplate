@@ -1,18 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
 stash_before_tests=1
 
+# shellcheck disable=SC2120
 function print_separator {
     local char; [[ -n "$1" ]] && char="$1" || char="─"
     printf "%$(tput cols)s\n" | tr ' ' "$char"
 }
 
+# shellcheck disable=SC2119,SC2155
 function print_message {
     local message="$1"
     local color="$2"
 
-    local COLOR_RESET="$(tput sgr0)"
     local color_code
+    local COLOR_RESET="$(tput sgr0)"
 
     case $color in
         "red")   color_code="$(tput setaf 1)" ;;
@@ -27,7 +29,7 @@ function print_message {
 
 function restore_and_exit {
     (( stash_before_tests )) && git stash pop -q
-    exit $1
+    exit "$1"
 }
 
 function fail {
