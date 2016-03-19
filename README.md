@@ -12,7 +12,7 @@ Features (via [Gulp] build):
 - Compiles ES6 to ES5 (using [Babel])
 - Bundles ES6 modules and ES5 libraries into a single script using [Browserify]
 - [Sass] (with [Autoprefixer]), [Browsersync], linting ([ESLint])
-- Support for React’s [JSX] syntax
+- React-ready, with support for [JSX] \(but otherwise not tied to React)
 - Unit test setup: [Mocha], [Chai], [Sinon], [Istanbul]
 
 [Autoprefixer]: https://github.com/postcss/autoprefixer
@@ -49,6 +49,7 @@ cd .git/hooks/ && ln -s ../../git-hooks/pre-commit && cd - && \
 npm install  && \
 npm start
 ```
+Then point your browser to [localhost:3000](http://localhost:3000/).
 
 Three files will be served via HTTP (from the `dist` directory):
 
@@ -57,5 +58,7 @@ Three files will be served via HTTP (from the `dist` directory):
 - `styles.css`
 
 You can use `npm run gulp <task>` as an alias for the local Gulp (`./node_modules/.bin/gulp`). Otherwise make sure your global Gulp is up to date.
+
+To remove React, run: `npm uninstall --save react react-dom`. For jQuery: `npm uninstall --save jquery`.
 
 The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Import other ES6 modules from `app/app.js`. Use npm to install dependencies. Run tests with `npm test` (coverage report goes to `coverage/lcov-report/index.html`).
