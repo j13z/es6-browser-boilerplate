@@ -8,8 +8,8 @@ describe('util', () => {
 
 	describe('bind', () => {
 
-		context('when called with more than one arguments', () => {
-			it('should bind the arguments to the function (first argument)', () => {
+		context('when called with more than one argument', () => {
+			it('binds the arguments to the function (first argument)', () => {
 
 				const f = sinon.spy();
 				const g = bind(f, 'bound arg 1', 'bound arg 2');
@@ -22,7 +22,7 @@ describe('util', () => {
 		});
 
 		context('when called with only one argument', () => {
-			it('should not change the function’s behavior', () => {
+			it('does not change the function’s behavior', () => {
 
 				const f = sinon.spy(() => 'hello');
 				const g = bind(f);
