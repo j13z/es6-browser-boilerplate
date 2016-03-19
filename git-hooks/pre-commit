@@ -1,24 +1,51 @@
 #!/bin/sh
 
-echo
-echo "Running pre-commit hook"
-echo
+stash_before_tests=1
 
-# Exclude unstaged files from the tests (they may still break the tests)
-git stash -q --keep-index
+function print_separator {
+    local char; [[ -n "$1" ]] && char="$1" || char="─"
+    printf "%$(tput cols)s\n" | tr ' ' "$char"
+}
+
+function print_message {
+    local message="$1"
+    local color="$2"
+
+    local COLOR_RESET="$(tput sgr0)"
+    local color_code
+
+    case $color in
+        "red")   color_code="$(tput setaf 1)" ;;
+        "green") color_code="$(tput setaf 2)" ;;
+    esac
+
+    echo
+    print_separator
+    echo "  ${color_code}$message${COLOR_RESET}"
+    print_separator
+}
 
 function restore_and_exit {
-	git stash pop -q
-	exit $1
+    (( stash_before_tests )) && git stash pop -q
+    exit $1
 }
 
 function fail {
-	printf "\n\n ========== Pre-commit checks FAILED ==========\n\n"
-	restore_and_exit 1
+    print_message "Pre-commit checks FAILED, rejecting commit" red
+    echo
+    restore_and_exit 1
 }
 
-npm run lint || fail
-npm test || fail
 
-printf "\n\n ✓ checks passed\n\n"
+print_message "Running pre-commit hook"
+
+# Exclude unstaged files from the tests (they may still break the tests)
+(( stash_before_tests )) && git stash -q --keep-index
+
+npm run lint || fail
+npm test     || fail
+
+print_message "✓ Pre-commit checks passed" green
+echo
+
 restore_and_exit 0
