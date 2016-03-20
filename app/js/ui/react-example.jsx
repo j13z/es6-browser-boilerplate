@@ -12,9 +12,8 @@ export function render() {
 
 	ReactDOM.render(
 		<HelloWorldComponent />,
-		element
+		element,
+		() => element.classList.remove('-hidden')
 	);
-
-	element.classList.remove('-hidden');
 }
 
