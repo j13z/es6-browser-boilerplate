@@ -3,7 +3,7 @@
 
 [![](https://david-dm.org/j13z/es6-browser-boilerplate/dev-status.png)](https://david-dm.org/j13z/es6-browser-boilerplate/#info=devDependencies&view=table)
 
-# es6-boilerplate
+# es6-browser-boilerplate
 
 ECMAScript 2015 (ES6) boilerplate project for current browsers, to be used with HTTP/1.1.
 
