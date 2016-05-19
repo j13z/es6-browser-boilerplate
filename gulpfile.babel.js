@@ -134,7 +134,7 @@ gulp.task('styles', () => {
 		.pipe(plugins.autoprefixer(AUTOPREFIXER_BROWSERS))
 		.pipe(gulp.dest('.tmp/styles'))
 		// Concatenate and minify styles
-		.pipe(plugins.if('*.css', plugins.minifyCss()))
+		.pipe(plugins.if('*.css', plugins.cleanCss()))
 		.pipe(plugins.sourcemaps.write('./'))
 		.pipe(gulp.dest(dirs.output.styles));
 });

@@ -7,8 +7,6 @@
 
 ECMAScript 2015 (ES6) boilerplate project for current browsers, to be used with HTTP/1.1.
 
-**Note:** Currently does not support Node.js 6.0 because of [failing `node-sass` native builds](https://github.com/sass/node-sass/issues/1484#issuecomment-214912917) (to be fixed soon).
-
 Features (via [Gulp] build):
 
 - Compiles ES6 to ES5 (using [Babel])
