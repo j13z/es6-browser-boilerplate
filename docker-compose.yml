@@ -1,0 +1,5 @@
+gulp-dev-server:
+  build: .
+  command: gulp serve
+  ports:
+    - "3000:3000"
