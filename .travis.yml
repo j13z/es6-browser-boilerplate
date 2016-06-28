@@ -1,0 +1,8 @@
+language: node_js
+
+node_js:
+  - "6.1.0"
+  - "5"    # latest 5.x
+  - "4"    # latest 4.x
+
+script: node_modules/.bin/gulp
