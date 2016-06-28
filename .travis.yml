@@ -5,4 +5,10 @@ node_js:
   - "5"    # latest 5.x
   - "4"    # latest 4.x
 
-script: node_modules/.bin/gulp
+# Run gulp build and ensure all `dist` directory files were created:
+script: >
+  rm -rf dist && node_modules/.bin/gulp &&
+    [[ -f dist/index.html ]] &&
+    [[ -f dist/app.js ]] &&
+    [[ -f dist/styles.css ]] &&
+    [[ -f dist/styles.css.map ]]
