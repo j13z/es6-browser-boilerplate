@@ -2,6 +2,7 @@
 
 
 [![](https://david-dm.org/j13z/es6-browser-boilerplate/dev-status.png)](https://david-dm.org/j13z/es6-browser-boilerplate/#info=devDependencies&view=table)
+[![Build Status](https://travis-ci.org/j13z/es6-browser-boilerplate.svg?branch=master)](https://travis-ci.org/j13z/es6-browser-boilerplate)
 
 # es6-browser-boilerplate
 
