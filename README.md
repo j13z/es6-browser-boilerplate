@@ -60,6 +60,6 @@ Three files will be served via HTTP (from the `dist` directory):
 
 You can use `npm run gulp <task>` as an alias for the local Gulp (`./node_modules/.bin/gulp`). Otherwise make sure your global Gulp is up to date.
 
-To remove React, run: `npm uninstall --save react react-dom`. For jQuery: `npm uninstall --save jquery`.
+To remove React, run: `npm uninstall --save react react-dom`.
 
 The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Import other ES6 modules from `app/app.js`. Use npm to install dependencies. Run tests with `npm test` (coverage report goes to `coverage/lcov-report/index.html`).
