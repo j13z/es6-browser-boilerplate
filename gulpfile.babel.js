@@ -24,7 +24,7 @@ const plugins = gulpLoadPlugins();
 
 const files = {
 	output: {
-		scriptBundle: 'app.js',
+		scriptBundle: 'app.js'
 	}
 };
 
