@@ -1,12 +1,12 @@
 *Work in progress (no stable versions / releases). A repo that I use to start smaller ES6 projects (with the shell snippet below).*
 
 
-[![](https://david-dm.org/j13z/es6-browser-boilerplate/dev-status.png)](https://david-dm.org/j13z/es6-browser-boilerplate/#info=devDependencies&view=table)
+[![](https://david-dm.org/j13z/es6-browser-boilerplate/dev-status.png)](https://david-dm.org/j13z/es6-browser-boilerplate?type=dev)
 [![Build Status](https://travis-ci.org/j13z/es6-browser-boilerplate.svg?branch=master)](https://travis-ci.org/j13z/es6-browser-boilerplate)
 
 # es6-browser-boilerplate
 
-ECMAScript 2015 (ES6) boilerplate project for current browsers, to be used with HTTP/1.1.
+ECMAScript 2015 (ES6) boilerplate / starter project for current browsers, to be used with HTTP/1.1.
 
 Features (via [Gulp] build):
 
@@ -62,4 +62,6 @@ You can use `npm run gulp <task>` as an alias for the local Gulp (`./node_module
 
 To remove React, run: `npm uninstall --save react react-dom`.
 
-The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Import other ES6 modules from `app/app.js`. Use npm to install dependencies. Run tests with `npm test` (coverage report goes to `coverage/lcov-report/index.html`).
+The app source code lives in the [`app`](https://github.com/j13z/es6-boilerplate/tree/master/app) directory, the build goes to `dist`. Import other ES6 modules from `app/app.js`. Use npm to install dependencies.
+
+Run tests with `npm test`. Generate a coverage report with `npm run coverage` (will be written to `coverage/lcov-report/index.html`).
