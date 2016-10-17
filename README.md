@@ -6,7 +6,7 @@
 
 # es6-browser-boilerplate
 
-ECMAScript 2015 (ES6) boilerplate / starter project for current browsers, to be used with HTTP/1.1.
+ECMAScript 2015 (ES6) boilerplate / starter project / seed for current browsers, to be used with HTTP/1.1.
 
 Features (via [Gulp] build):
 
@@ -40,7 +40,7 @@ Features (via [Gulp] build):
 Or all in one run:
 
 ```shell
-git clone git@github.com:j13z/es6-boilerplate.git project  && \
+git clone https://github.com/j13z/es6-browser-boilerplate.git project  && \
 cd project   && \
 rm -rf .git  && \
 cat /dev/null > README.md  && \
