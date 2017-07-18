@@ -1,3 +1,7 @@
+*Not maintained anymore*: While this minimalistic setup has some benefits, I prefer webpack based setups theses days.
+
+---
+
 *Work in progress (no stable versions / releases). A repo that I use to start smaller ES6 projects (with the shell snippet below).*
 
 
